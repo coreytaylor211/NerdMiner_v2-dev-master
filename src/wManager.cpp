@@ -19,9 +19,9 @@
 bool shouldSaveConfig = false;
 
 // Variables to hold data from custom textboxes
-char poolString[80] = "btc.zsolo.bid";
-int portNumber = 6057;
-char btcString[80] = "bc1qp5a7hzgdm0p0qmzl0rts5z3c5cjmttz8cuxzgu";
+char poolString[80] = "your pool";
+int portNumber = 0000;
+char btcString[80] = "your btc adress";
 
 
 // Define WiFiManager Object

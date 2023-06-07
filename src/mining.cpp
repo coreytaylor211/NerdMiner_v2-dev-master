@@ -14,7 +14,7 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 #include "media/myFonts.h"
-
+#include <iostream>
 
 
 
@@ -42,7 +42,7 @@ float netzDiff;
 int lastShare;
 float bestShare;
 int bestEver;
-
+extern bool doubleClick;
 
 
 
@@ -92,7 +92,7 @@ String getNBlocksTotal() {
 
     Serial.print("n_blocks_total: ");
     Serial.println(nBlocksTotal);
-
+    
       Serial.print("Diff: ");
     Serial.println(netzDiff);
  
@@ -397,8 +397,15 @@ void runMonitor(void *name){
   unsigned long mLastCheck = 0;
 
   while(1){
-    
-    background.pushImage(0, 0, MinerWidth, MinerHeight, MinerScreen); 
+    if (!doubleClick){
+      background.pushImage(0, 0, MinerWidth, MinerHeight, MinerScreen);
+    }
+
+    if (doubleClick){
+      background.pushImage(0, 0, MinerWidth, MinerHeight, MinerScreenMatrix);
+    }
+
+     
     
     
     unsigned long mElapsed = millis()-mLastCheck;

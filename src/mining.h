@@ -13,6 +13,7 @@ void runMonitor(void *name);
 void runStratumWorker(void *name);
 void runMiner(void *name);
 String printLocalTime(void);
+extern bool doubleClick;
 
 typedef struct{
   uint8_t bytearray_target[32];

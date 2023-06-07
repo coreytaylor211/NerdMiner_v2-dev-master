@@ -1,5 +1,10 @@
 # NerdSoloMiner
-**The NerdSoloMiner v2**
+**The NerdSoloMiner v2.1**
+
+## NEWS
+- It is now possible to change the appearance by quickly double-clicking the upper button (USB-C on the right side). 
+  Additionally, the "current Block," "Last Share," "Best Ever," "Best Share," and the "Diff" are displayed.
+
 
 This is a **free and open source project** that let you try to reach a bitcoin block with a small piece of hardware. 
 
@@ -8,7 +13,7 @@ The main aim of this project is to let you **learn more about minery** and to ha
 
 Original project https://github.com/valerio-vaccaro/HAN
 
-![image](images/NerdMinerv2.jpg)
+![image](images/Miner.jpeg)
 
 ## Requirements
 - TTGO T-Display S3
@@ -27,22 +32,20 @@ This miner is multicore and multithreads, each thread mine a different block tem
 ### Hardware requirements
 - TTGO T-Display S3 > Buy it on aliexpress or amazon
 - 3D BOX
+- fan (optional)
+
+
 
 ### Flash firmware
-Create your own miner using the online tool **ESPtool** and the **binary files** that you will find in the src/bin folder.
-If you want you can compile the entire project using Arduino, PlatformIO or Expressif IDF.
+Create your own miner.
+If you want you can compile the entire project using VSCode, Arduino, PlatformIO or Expressif IDF.
 
-1. Get a TTGO T-display S3
-1. Download this repository
-1. Go to ESPtool online: https://espressif.github.io/esptool-js/
-1. Load the firmware with the binaries from the src/bin folder.
-1. Plug your board and select each file from src/bin with its address 
-
-#### Build troubleshooting
-1. Online ESPtool works with chrome, chromium, brave
-1. ESPtool recommendations: use 115200bps
-1. Build errors > If during firmware download upload stops, it's recommended to enter the board in boot mode. Unplug cable, hold right bottom button and then plug cable. Try programming
-1. In extreme case you can "Erase all flash" on ESPtool to clean all current configuration before uploading firmware. There has been cases that experimented Wifi failures until this was made. 
+1. Download and install VSCode.
+2. Go to GitHub and navigate to the repository with the code you want to download.
+3. Click on the green "Code" button to download the entire codebase.
+4. Open VSCode and navigate to the folder where you downloaded the code.
+5. In the top-right corner of VSCode, click on the small downward arrow and select "Upload."
+6. Wait for the code to finish uploading.
 
 ### NerdMiner configuration
 After programming, you will only need to setup your Wifi and BTC address.
@@ -50,14 +53,14 @@ After programming, you will only need to setup your Wifi and BTC address.
 1. Connect to NerdMinerAP
     - AP:   NerdMinerAP
     - PASS: MineYourCoins
-1. Setup your Wifi Network
-1. Add your BTCaddress
+2. Setup your Wifi Network
+3. Add your BTCaddress
 
 Optional you can select other pool:
 
 | Pool URL                 | Port | URL |
 |---                       |---   |---  | 
-| solo.ckpool.org          | 3333 | https://solo.ckpool.org/ |  
+| solo.ckpool.org          | 3333 | https://solo.ckpool.org/ |  At the moment, only ckpool supports Last Share, Best Share and Best Ever !!!
 | btc.zsolo.bid            | 6057 | https://zsolo.bid/en/btc-solo-mining-pool |
 | eu.stratum.slushpool.com | 3333 | https://braiins.com/pool |
 
@@ -65,10 +68,9 @@ Optional you can select other pool:
 With the USB-C port to the right:
 - The top button allows you to **reset the configurations and reboot** your NerdMiner. Just hold it for 5 seconds.
 - Click the bottom button once to turn the screen off and on again
-- Double click to change the orientation (default is USB-C to the right)
+- Double click the bottom button to change the orientation (default is USB-C to the right)
+- It is now possible to change the appearance by quickly double-clicking the upper button.
 
-#### Build video
-[![Ver video aquí](https://img.youtube.com/vi/POUT2R_opDs/0.jpg)](https://youtu.be/POUT2R_opDs)
 
 ## Developers
 ### Project guidelines
@@ -87,10 +89,11 @@ With the USB-C port to the right:
 - [ ]  Code refactoring
 - [x]  Add blockHeight to screen
 - [x]  Add clock to show current time
-- [ ]  Add new screen with global mining stats
+- [x]  Add new screen with global mining stats
 - [ ]  Add support to control BM1397
+- [x]  Page switch. 
 
 ### Donations/Project contributions
-If you would like to contribute and help dev team with this project you can send a donation to the following LN address ⚡teamnerdminer@getalby.com⚡
+If you would like to help me here my btc bc1qp5a7hzgdm0p0qmzl0rts5z3c5cjmttz8cuxzgu :) Thanks
 
 Enjoy

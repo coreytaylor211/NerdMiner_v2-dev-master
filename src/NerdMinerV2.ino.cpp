@@ -19,7 +19,7 @@
 OneButton button1(PIN_BUTTON_1);
 OneButton button2(PIN_BUTTON_2);
 
-
+bool doubleClick;
 OpenFontRender render;
 
 /**********************⚡ GLOBAL Vars *******************************/
@@ -43,7 +43,18 @@ void alternate_screen_rotation() {
 
 }
 
+bool ToggleBool(bool& value) {
+    value = !value;  // Umschalten des bool-Werts
+    return value;    // Rückgabe des neuen bool-Werts (optional)
+}
 
+
+
+void setBool(){
+ToggleBool(doubleClick);
+
+
+}
 
 /********* INIT *****/
 void setup()
@@ -67,8 +78,9 @@ void setup()
 
   // Button 2 (GPIO14)
   button2.setPressTicks(5000);
+  button2.attachDoubleClick(setBool);
   // button2.attachClick();
-  // button2.attachDoubleClick([]{Serial.println("Button 2 was double clicked");});
+  //button2.attachDoubleClick([]{Serial.println("Button 2 was double clicked");});
   button2.attachLongPressStart(reset_configurations);
   // button2.attachLongPressStop(reset_configurations);
   // button2.attachDuringLongPress([]{Serial.println("Button 2 is being held down");});
@@ -133,7 +145,8 @@ void setup()
 
   /******** TIME ZONE SETTING *****/
   configTime(0, 0, ntpServer);
-  setenv("TZ", "CET-1CEST,M3.5.0,M10.5.0/3", 1);
+  setenv("TZ", "CET-1CEST,M3.5.0,M10.5.0/3", 1);  //  deutsche Zeitzone.
+  //setenv("TZ", "MSK-3", 1);                     //  Moscow Zeitzone.
 }
 
 void app_error_fault_handler(void *arg) {

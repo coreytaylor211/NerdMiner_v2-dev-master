@@ -23,6 +23,7 @@ static unsigned long hashes= 0;
 static unsigned long Mhashes = 0;
 static unsigned long totalKHashes = 0;
 static String temp;
+String btc = "https://solo.ckpool.org/users/";
 
 String hashTemp;
 
@@ -40,7 +41,9 @@ int nBlocksTotal;
 float netzDiff;
 int lastShare;
 float bestShare;
-int bestEver ;
+int bestEver;
+
+
 
 
 extern OpenFontRender render;
@@ -119,8 +122,7 @@ String getShare() {
 
   // Send HTTP GET request
   HTTPClient http;
-  http.begin("https://solo.ckpool.org/users/bc1qp5a7hzgdm0p0qmzl0rts5z3c5cjmttz8cuxzgu");  // Replace with the actual URL of the JSON data
-
+  http.begin(btc + btcString);
   int httpCode = http.GET();
   if (httpCode == HTTP_CODE_OK) {
     payloadtwo = http.getString();
